@@ -10,6 +10,8 @@
             var differentWord = false;
             var word = a.ToLowerInvariant().ToCharArray();
             var test = b.ToLowerInvariant().ToCharArray();
+            RemoveDiacricts(word);
+            RemoveDiacricts(test);
 
             for (var i = 0; i < word.Length; i++)
             {
@@ -28,5 +30,34 @@
 
             return differentWord;
         }
+
+        private static void RemoveDiacricts(char[] text)
+        {
+            for (var i = 0; i < text.Length; i++)
+            {
+                for (var j = 0; j < diacriticMap.Length; j++)
+                {
+                    for (var k = 1; k < diacriticMap[j].Length; k++)
+                    {
+                        if (text[i] == diacriticMap[j][k])
+                        {
+                            text[i] = diacriticMap[j][0];
+                        }
+                    }
+                }
+            }
+        }
+
+        private static readonly string[] diacriticMap = 
+        {
+            "aáàäâ",
+            "eéèëê",
+            "iíìïî",
+            "oóòöô",
+            "uúùüû",
+            "cç",
+            "sß",
+            "yÿ"
+        };
     }
 }
