@@ -18,7 +18,7 @@ namespace AnagramTest
         [InlineData("Fotoligografía", "litofotografía")]
         [InlineData("Caliente", "Alicante")]
         [InlineData("Topera", "trepaos")]
-        public void ShouldWordsNotBeAnagrams(string a, string b)
+        public void ShouldLettersNotBeAnagrams(string a, string b)
         {
             var anagram = new Anagram();
 
@@ -92,6 +92,29 @@ namespace AnagramTest
         [InlineData("Reías", "ríase")]
         [InlineData("Matar", "Marta")]
         [InlineData("Terso", "teros")]
+        public void ShouldLettersBeAnagrams(string a, string b)
+        {
+            var anagram = new Anagram();
+
+            anagram.IsAnagram(a, b).ShouldBe(true);
+        }
+
+        [Theory]
+        [InlineData("La contravino", "No la vi entrar")]
+        [InlineData("Istmo de Panamá", "Tío San me da pan")]
+        [InlineData("La revolución francesa", "un corso clave la fresa")]
+        public void ShouldWordsNotBeAnagrams(string a, string b)
+        {
+            var anagram = new Anagram();
+
+            anagram.IsAnagram(a, b).ShouldBe(false);
+        } 
+
+        [Theory]
+        [InlineData("Anagrama", "amar, gana")]
+        [InlineData("Anagramas", "a ganar más")]
+        [InlineData("El huevo de chocolate", "hecho de vate locuelo")]
+        [InlineData("Alborota", "rata, lobo")]
         public void ShouldWordsBeAnagrams(string a, string b)
         {
             var anagram = new Anagram();
