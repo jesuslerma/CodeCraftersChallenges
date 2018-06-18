@@ -18,3 +18,13 @@ You can execute the program by giving two words as arguments.
 dotnet run --project AnagramApp/AnagramApp.csproj word1 word2
 ```
 
+## Docker
+To run this solution using docker please use the following commands:
+
+```bash
+docker build -t armando .
+sudo docker run -it armando
+```
+
+It will open a bash so you can run build, test and run commands listed previously.
+
