@@ -22,8 +22,8 @@ dotnet run --project AnagramApp/AnagramApp.csproj word1 word2
 To run this solution using docker please use the following commands:
 
 ```bash
-docker build -t armando .
-sudo docker run -it armando
+docker build -t challenge002csharp .
+sudo docker run -it challenge002csharp
 ```
 
 It will open a bash so you can run build, test and run commands listed previously.
